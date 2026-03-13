@@ -1,0 +1,54 @@
+{
+  "name": "jdg-revenue-calc",
+  "version": "1.0.0",
+  "description": "Kalkulator przychodów dla jednoosobowej działalności gospodarczej",
+  "main": "main.js",
+  "author": "JDG Kalkulator",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "pl.jdg.kalkulator",
+    "productName": "Kalkulator JDG",
+    "copyright": "2026",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerLanguages": ["pl-PL", "en-US"],
+      "language": "1045",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Kalkulator JDG"
+    },
+    "portable": {
+      "artifactName": "KalkulatorJDG-portable.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
+}
